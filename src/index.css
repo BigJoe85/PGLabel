@@ -9,12 +9,21 @@ body {
     font-family: 'Jost', sans-serif;
 }
 
-.slideAnimation{
-    animation: animie 0.5s ease-out forwards;
+.slideAnimationNext{
+    animation: animie1 0.5s ease-out forwards;
 }
 
-@keyframes animie {
+@keyframes animie1 {
     from { transform: translateX(100%) }
+    to { transform: translateX(0) }
+}
+
+.slideAnimationPrev{
+    animation: animie2 0.5s ease-out forwards;
+}
+
+@keyframes animie2 {
+    from { transform: translateX(-100%) }
     to { transform: translateX(0) }
 }
 

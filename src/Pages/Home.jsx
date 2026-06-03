@@ -17,7 +17,7 @@ const Home = () => {
     },
 
     {
-      img: "https://res.cloudinary.com/duoy2tsyc/image/upload/v1778857519/Ravaya_-7-1-scaled_ogi0qp.webp",
+      img: "https://res.cloudinary.com/duoy2tsyc/image/upload/v1779214303/Ravaya_-7-2-scaled_u6v3uq.webp",
       txt1: "PG LABEL S25 COLLECTIONS",
       txt2: "GET GRUNGE",
       txt3: "SHOP MEN",
@@ -104,7 +104,7 @@ const Home = () => {
           </div>
           <PgNew />
           <ShortLong />
-          {/* <FootCollection /> */}
+          <FootCollection />
         </>
       }
     </>

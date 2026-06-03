@@ -2,6 +2,7 @@ import React from 'react'
 import useProductStore from '../Stores/useProductStore'
 import ProductCard from '../Components/ProductCard';
 import FilterSort from '../Components/FilterSort';
+import Filter from '../Components/Filter';
 
 const NewArrivals = () => {
   const products = useProductStore((state) => state.products) // here im using selector to pick a state created in useProductStore and saving it in a variable to represent the sellected state, always best to use the same state selected  as the variable name.
@@ -12,6 +13,7 @@ const NewArrivals = () => {
       <div className='w-[95%] mx-auto '>
 
         <FilterSort />
+        <Filter />
         
         <div className='grid grid-cols-4 max-xl:grid-cols-3 max-md:grid-cols-2 '>
           {products.map(el => (

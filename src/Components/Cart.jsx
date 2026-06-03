@@ -25,7 +25,7 @@ const Cart = () => {
 
         <div className='flex justify-between p-4 border-b-[0.1px] border-gray-300'>
           <h3 className='text-[#563624] font-medium'>SHOPPING CART</h3>
-          <div> <X onClick={toggleCart} className=' hover:text-red-600' /> </div>
+          <div> <X strokeWidth={1} onClick={toggleCart} className='cursor-pointer hover:scale-110 transition-transform hover:text-red-600' /> </div>
         </div>
 
         {items.length === 0 ? (
@@ -40,31 +40,32 @@ const Cart = () => {
 
             <div className='flex-1 overflow-y-auto px-8 py-4'>
               {items.map((el) => (
-                <div key={el.id} className='' >
+                <div key={`${el.id}-${el.size}-${el.colour?.name}`} className='' >
                   <div className='flex items-center gap-8 '>
-                    <img src={el.img} alt={el.name} className='w-1/4' />
+                    <img src={el.img} alt={el.name} className='w-[27%] h-full' />
 
                     <div>
-                      <p>{el.name}</p>
-                      <p>Size: {el.size}</p>
-                      <p>₦{(el.price).toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                      <p className='text-sm pb-1 pt-1'>{el.name}</p>
+                      <p className='text-xs pb-1'>Size: {el.size}</p>
+                      <p className='text-sm pb-2 font-medium'>₦{(el.price).toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
 
-                      <div className='flex items-center gap-2'>
-                        <div className='flex rounded justify-around items-center bg-gray-200 w-[5rem] h-[1.5rem]'>
-                          <Minus size={20} strokeWidth={1} onClick={() => decreaseQuantity(el.id, el.size, el.colour)} />
-                          <p>{el.quantity}</p>
-                          <Plus size={20} strokeWidth={1} onClick={() => increaseQuantity(el.id, el.size, el.colour)} />
+                      <div className='flex items-center gap-2 pb-2'>
+                        <div className=' w-[5rem] h-[1.5rem] bg-gray-200 rounded flex justify-around items-center'>
+                          <Minus className='cursor-pointer' size={20} strokeWidth={1} onClick={() => decreaseQuantity(el.id, el.size, el.colour)} />
+                          <p className='font-semibold text-sm'>{el.quantity}</p>
+                          <Plus className='cursor-pointer hover:rounded-full hover:bg-gray-300' size={20} strokeWidth={1} onClick={() => increaseQuantity(el.id, el.size, el.colour)} />
                         </div>
-                        <p onClick={() => removeItem(el.id, el.size, el.colour)}>Remove</p>
+                        <p onClick={() => removeItem(el.id, el.size, el.colour)} className='text-xs'>Remove</p>
                       </div>
 
-                      <p>Colour: {el.colour}</p>
+                      {el.colour?.name && <p className='text-sm pb-1'>Colour: {el.colour.name}</p>}
                     </div>
                   </div>
-                  <hr className='border-gray-200 mt-4' />
+                  <hr className='border-gray-200 my-4' />
                 </div>
               ))}
             </div>
+
             <div className='p-8 border-t border-gray-200'>
               <div className='flex justify-between w-full mb-4'>
                 <p>Subtotal:</p>

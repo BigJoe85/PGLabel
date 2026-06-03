@@ -17,6 +17,7 @@ const ProductDetails = () => {
 
     //quantity addition
     const [quantity, setQuantity] = React.useState(1)
+
     const increment = () => {
         setQuantity(prevState => prevState + 1);
     }
@@ -29,21 +30,25 @@ const ProductDetails = () => {
     const [sizeActive, setSizeActive] = React.useState(null)
     const handleActive = (size) => {
         setSizeActive(size)
-        console.log(size)
     }
 
     // this is for colour onclick to note which colour was clicked 
     const [colourActive, setColourActive] = React.useState(null)
     const handleColourActive = (col) => {
         setColourActive(col)
-        console.log(col)
     }
+
+    // this is to determine which colour to add to cart if the product has more than 1 colour, it will add the selected colour, if not it will add the only colour available, this is to prevent errors from trying to access a colour that doesn't exist in the array.
+    const colourToAdd = prod.colour.length > 1 ? colourActive : prod.colour[0]
 
     // calling toggleCart function and addItems on click of add to cart button
     const handleAddToCart = () => {
-        addItems(prod, quantity, sizeActive, colourActive)
+        addItems(prod, quantity, sizeActive, colourToAdd)
         toggleCart()
     }
+
+    // this is to check if size and colour is selected before allowing the user to add to cart, this will be used to conditionally render the add to cart button and also to prevent the user from adding to cart without selecting size and colour.
+    const canAddToCart = sizeActive && (prod.colour.length > 1 ? colourActive : true)
 
     // display a component below on vertical scrolling 
     const [isScrolled, setIsScrolled] = React.useState(false)
@@ -79,8 +84,8 @@ const ProductDetails = () => {
 
         <div className='relative w-full h-full'>
             {prod ?
-                <div className='h-full py-30 max-md:py-20'>
-                    <div className='max-md:w-[95%] w-[90%] mx-auto grid grid-cols-[5fr_5fr] max-md:grid-cols-1 gap-5'>
+                <div className='w-[90%] mx-auto h-full py-30 max-md:py-20'>
+                    <div className='max-md:w-[95%] w-[90%] mx-auto grid grid-cols-[5fr_5fr] max-md:grid-cols-1 gap-20'>
 
                         <div className='sticky top-0 max-md:static w-full grid grid-cols-[1fr_9fr] max-lg:flex max-lg:flex-col gap-4'>
                             <div className='flex gap-2 flex-col max-lg:order-2 max-lg:flex-row'>
@@ -99,28 +104,28 @@ const ProductDetails = () => {
                                     ))}
                                 </div>
 
-                                <button onClick={() => (activeIndex < prod.img.length - 1 ? setActiveIndex(activeIndex + 1) : null)} className={`p-2 rounded-2xl absolute top-1/2 -translate-y-1/2  right-4 ${activeIndex < prod.img.length - 1 ? 'bg-white ' : 'bg-gray-600 opacity-15'}`}><ChevronRight /></button>
+                                <button onClick={() => (activeIndex < prod.img.length - 1 ? setActiveIndex(activeIndex + 1) : null)} className={` hover:bg-black hover:text-white p-2 rounded-2xl absolute top-1/2 -translate-y-1/2  right-4 ${activeIndex < prod.img.length - 1 ? 'bg-white ' : 'bg-gray-600 opacity-15'}`}><ChevronRight /></button>
 
-                                <button onClick={() => (activeIndex > 0 ? setActiveIndex(activeIndex - 1) : null)} className={`p-2 rounded-2xl absolute top-1/2 -translate-y-1/2 left-4 ${activeIndex > 0 ? 'bg-white ' : 'bg-gray-600 opacity-15'}`}><ChevronLeft /></button>
+                                <button onClick={() => (activeIndex > 0 ? setActiveIndex(activeIndex - 1) : null)} className={` hover:bg-black hover:text-white p-2 rounded-2xl absolute top-1/2 -translate-y-1/2 left-4 ${activeIndex > 0 ? 'bg-white ' : 'bg-gray-600 opacity-15'}`}><ChevronLeft /></button>
                             </div>
                         </div>
 
 
 
-                        <div>
+                        <div className='text-[#563624]'>
                             <div className='mb-6'>
-                                <h1>{prod.name}</h1>
-                                <p>₦{(prod.price).toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                                <h1 className='font-medium text-xl pb-2'>{prod.name}</h1>
+                                <p className=' text-xl'>₦{(prod.price).toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                             </div>
 
                             <div>
-                                <p className='font-medium'>Select Sizes</p>
+                                <p className='text-sm'>Size</p>
                                 <div className="flex w-60 gap-4 pt-3 pb-4">
                                     {prod.size.map((sizeValue, index) => (
                                         <div
-                                            onClick={() => handleActive(sizeValue)}
+                                            onClick={() => handleActive(sizeActive === sizeValue ? null : sizeValue)}
                                             key={index}
-                                            className={`rounded min-w-[3rem] hover:border-black border border-gray-200 text-center ${sizeActive === sizeValue ? 'bg-black text-white' : 'border'}`}>
+                                            className={`cursor-pointer rounded min-w-[3rem] hover:border-black border border-gray-200 text-center ${sizeActive === sizeValue ? 'bg-[#563624]  text-white' : 'border'}`}>
 
                                             {sizeValue}
 
@@ -129,37 +134,40 @@ const ProductDetails = () => {
                                 </div>
                             </div>
 
-                            <div>
-                                <p className='font-medium'>Select Colour</p>
-                                <div className="grid grid-cols-5 max-xl:grid-cols-4 max-lg:grid-cols-3 w-full gap-2 pt-3 pb-4">
-                                    {prod.colour.map((colourValue, index) => (
 
-                                        <div
-                                            onClick={() => handleColourActive(colourValue)}
-                                            key={index}
-                                            style={{ backgroundColor: colourActive === colourValue ? colourValue.hex : '' }}
-                                            className={`flex items-center justify-center rounded min-w-[6rem] hover:border-black border border-gray-200 text-center ${colourActive === colourValue ? 'text-white' : 'border'}`}>
+                            {prod.colour.length > 1 && (
+                                <div>
+                                    <p className='text-sm'>Colour</p>
+                                    <div className="grid grid-cols-5 max-xl:grid-cols-4 max-lg:grid-cols-3 w-full gap-2 pt-3 pb-4">
+                                        {prod.colour.map((colourValue, index) => (
 
-                                            {colourValue.name}
+                                            <div
+                                                onClick={() => handleColourActive(colourActive === colourValue ? null : colourValue)}
+                                                key={index}
+                                                className={`cursor-pointer flex items-center justify-center rounded min-w-[6rem] hover:border-black border border-gray-200 text-center ${colourActive === colourValue ? 'text-white bg-[#563624] ' : 'border'}`}>
 
-                                        </div>
+                                                {colourValue.name}
 
-                                    ))}
+                                            </div>
+
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
+                            )
+                            }
 
 
                             <div className='flex max-2lg:flex-col gap-4'>
                                 <div className='flex rounded justify-around items-center bg-gray-200 w-[10rem] h-[3rem]'>
-                                    <Minus size={20} strokeWidth={1} onClick={decrement} />
-                                    <p>{quantity}</p>
-                                    <Plus size={20} strokeWidth={1} onClick={increment} />
+                                    <Minus className='cursor-pointer hover:rounded-full hover:bg-gray-300' size={20} strokeWidth={1} onClick={decrement} />
+                                    <p className='font-semibold text-sm'>{quantity}</p>
+                                    <Plus className='cursor-pointer hover:rounded-full hover:bg-gray-300' size={20} strokeWidth={1} onClick={increment} />
                                 </div>
 
-                                <div onClick={sizeActive && colourActive ? handleAddToCart : null} className={`flex gap-2 items-center justify-center w-[80%] h-[3rem] ${sizeActive && colourActive ? 'bg-[#563624] hover:bg-black' : 'bg-[#cdc2bd] hover:cursor-not-allowed'}`}>
+                                <div onClick={canAddToCart ? handleAddToCart : null} className={`flex gap-2 items-center justify-center w-[80%] h-[3rem] ${canAddToCart ? 'bg-[#563624] hover:bg-black' : 'bg-[#cdc2bd] hover:cursor-not-allowed'}`}>
                                     <h1 className='text-white font-bold'>Add to cart </h1>
-                                    <h1 className={`text-white font-bold ${sizeActive && colourActive ? 'block' : 'hidden'}`}>
-                                     - ₦{(prod.price * quantity).toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h1>
+                                    <h1 className={`text-white font-bold ${canAddToCart ? 'block' : 'hidden'}`}>
+                                        - ₦{(prod.price * quantity).toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h1>
                                 </div>
                             </div>
 
@@ -172,18 +180,18 @@ const ProductDetails = () => {
                             <div className='grid grid-cols-2 max-lg:grid-cols-1 gap-4 w-full h-auto text-center pb-6'>
                                 <div className='h-[9rem] border border-gray-200 rounded flex flex-col justify-center items-center gap-2 p-4'>
                                     <TruckElectric />
-                                    <p>Estimate delivery times: 2-5 days (Nigeria), 5-15 days (International).</p>
+                                    <p>Estimate delivery times: <strong>2-5 days</strong> (Nigeria), <strong>5-15 days</strong> (International).</p>
                                 </div>
 
                                 <div className='h-[9rem] border border-gray-200 rounded flex flex-col justify-center items-center gap-2 p-4'>
                                     <Globe />
-                                    <p>We offer worldwide shipping to any location. Duties & taxes applied at checkout.</p>
+                                    <p>We offer <strong>worldwide shipping</strong> to any location. Duties & taxes applied at checkout.</p>
                                 </div>
                             </div>
 
                             <div className='flex gap-4 h-[5rem]'>
                                 <ShieldHalf />
-                                <p>Guarantee Safe Checkout</p>
+                                <strong>Guarantee Safe Checkout</strong>
                             </div>
                         </div>
                     </div>
@@ -194,9 +202,9 @@ const ProductDetails = () => {
                             {description ? <Minus size={20} strokeWidth={1} /> : <Plus size={20} strokeWidth={1} />}
                         </div>
 
-                        <div className={`border border-gray-200 overflow-hidden transition-all duration-500 ${description ? 'translate-y-0 h-[7rem] opacity-100' : 'translate-y-full h-0 opacity-0'}`} >
-                            <ul>
-                                <li>{prod.des1}</li>
+                        <div className={`border border-gray-200 overflow-hidden transition-all duration-500 ${description ? 'translate-y-0 h-full opacity-100' : ' translate-y-full h-0 opacity-0'}`} >
+                            <ul className='text-sm px-10 py-6'>
+                                <li className='font-medium'>{prod.des1}</li>
                             </ul>
                         </div>
 
@@ -205,8 +213,8 @@ const ProductDetails = () => {
                             {addInfo ? <Minus size={20} strokeWidth={1} /> : <Plus size={20} strokeWidth={1} />}
                         </div>
 
-                        <div className={`flex items-center justify-center border border-gray-200 overflow-hidden transition-all duration-500 ${addInfo ? 'translate-y-0 h-[7rem] opacity-100' : 'translate-y-full h-0 opacity-0'}`} >
-                            <div className='flex gap-4'>
+                        <div className={`flex items-center border border-gray-200 overflow-hidden transition-all duration-500 ${addInfo ? 'translate-y-0 h-[5rem] opacity-100' : 'translate-y-full h-0 opacity-0'}`} >
+                            <div className='px-10 flex gap-4'>
                                 <div>
                                     <p>Select size:</p>
                                 </div>

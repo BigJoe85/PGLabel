@@ -6,7 +6,7 @@ const FilterSort = () => {
   const toggleFilter = useUIStore((state) => (state.toggleFilter))
 
   return (
-    <div className='w-full h-full'>
+    <div className='w-full h-full py-10'>
       <div className='w-[95%] mx-auto'>
         <div className='flex justify-between gap-4'>
           
