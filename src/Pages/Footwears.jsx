@@ -1,6 +1,7 @@
 import React from 'react'
 import ComingSoon from '../Components/ComingSoon'
 import FilterSort from '../Components/FilterSort'
+import Filter from '../Components/Filter'
 import ProductCard from '../Components/ProductCard';
 import useProductStore from '../Stores/useProductStore'
 
@@ -11,6 +12,7 @@ const Footwears = () => {
     <div className='w-full h-full py-30'>
       <div className='mx-auto w-[90%]'>
         <FilterSort />
+        <Filter />
 
         <div className='grid grid-cols-4 max-xl:grid-cols-3 max-md:grid-cols-2 '>
           {products.filter(products => products.category === "footwear").map(el => (

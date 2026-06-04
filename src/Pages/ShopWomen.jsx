@@ -12,7 +12,7 @@ const ShopWomen = () => {
     <div className='w-full h-full py-30'>
       <div className='w-[90%] mx-auto'>
         <FilterSort />
-        {/* <Filter /> */}
+        <Filter />
 
         <div className='grid grid-cols-4 max-xl:grid-cols-3 max-md:grid-cols-2 '>
           {products.filter(products => products.category === "women").map(el => (

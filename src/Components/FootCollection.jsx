@@ -5,11 +5,16 @@ import useProductStore from '../Stores/useProductStore'
 const FootCollection = () => {
   const products = useProductStore((state) => state.products) // here im using selector to pick a state created in useProductStore and saving it in a variable to represent the sellected state, always best to use the same state selected  as the variable name.
 
-//   const footCollection = products.slice(0, 4);
+  //   const footCollection = products.slice(0, 4);
 
   return (
-    <div className='w-full h-full py-30'>
-      <div className='mx-auto w-[90%]'>
+
+    <div>
+      <div className=' py-10 w-[85%] max-md:w-[95%] mx-auto'>
+        <div className='pb-5 text-center'>
+          <h1 className='text-[#563624] font-medium'>THIS SEASON</h1>
+          <p className='text-[#563624] font-bold' >FOOTWEAR COLLECTION</p>
+        </div>
 
         <div className='grid grid-cols-4 max-xl:grid-cols-3 max-md:grid-cols-2 '>
           {products.filter(products => products.category === "footwear").map(el => (
@@ -18,6 +23,8 @@ const FootCollection = () => {
         </div>
       </div>
     </div>
+
+
   )
 }
 

@@ -11,7 +11,7 @@ const Products = [
         price: 30000.00,
         name: "PG-001",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: "fgfgg".repeat(150),
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
@@ -50,18 +50,16 @@ const Products = [
     {
         id: 3,
         img: [
-            "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780257633/WhatsApp_Image_2026-05-31_at_00.14.15_ki2s3w.jpg",
-            "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780257633/WhatsApp_Image_2026-05-31_at_00.12.38_uaiwnf.jpg",
+            "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780486375/WhatsApp_Image_2026-05-31_at_00.10.26_j6chzu.jpg",
         ],
-        price: 25000.00,
+        price: 40000.00,
         name: "PG-003",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: "",
+        des1: "A stunning floor-length gown designed to captivate. Featuring a sophisticated halter neckline, intricate black embellishments, and a figure-flattering silhouette, the Black Diamond Halter Gown exudes timeless elegance and effortless glamour for your most memorable occasions.",
         category: "women",
 
         colour: [
-            { name: "Red", hex: "#FF0000" },
-            { name: "Black", hex: "#000000" },
+            { name: "", hex: "" },
         ],
 
         inStock: 10,
@@ -70,17 +68,22 @@ const Products = [
     {
         id: 4,
         img: [
-            "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780257908/WhatsApp_Image_2026-05-31_at_00.27.58_x4krfh.jpg",
+            "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780484458/WhatsApp_Image_2026-06-03_at_06.55.09_gvn5ez.jpg",
+            "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780484457/WhatsApp_Image_2026-06-03_at_06.55.08_gmv6co.jpg",
+            "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780484416/WhatsApp_Image_2026-06-03_at_06.55.08_1_pjubxb.jpg",
+            "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780484416/WhatsApp_Image_2026-06-03_at_06.54.30_viwjts.jpg",
         ],
-
-        price: 28000.00,
+        price: 35000.00,
         name: "PG-004",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: "",
+        des1: "A flowing full-length Lycra kaftan designed for effortless elegance and comfort. Featuring a relaxed silhouette, wide sleeves, and signature geometric accent details.",
         category: "women",
 
         colour: [
-            { name: "White", hex: "#ffffff" },
+            { name: "Blue", hex: "" },
+            { name: "Black", hex: "" },
+            { name: "Red", hex: "" },
+            { name: "Burnt Orange", hex: "" },
         ],
 
         inStock: 10,
@@ -169,26 +172,23 @@ const Products = [
     {
         id: 9,
         img: [
-            "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780484458/WhatsApp_Image_2026-06-03_at_06.55.09_gvn5ez.jpg",
-            "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780484457/WhatsApp_Image_2026-06-03_at_06.55.08_gmv6co.jpg",
-            "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780484416/WhatsApp_Image_2026-06-03_at_06.55.08_1_pjubxb.jpg",
-            "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780484416/WhatsApp_Image_2026-06-03_at_06.54.30_viwjts.jpg",
+            "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780257908/WhatsApp_Image_2026-05-31_at_00.27.58_x4krfh.jpg",
         ],
-        price: 35000.00,
+
+        price: 28000.00,
         name: "PG-009",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: "A flowing full-length Lycra kaftan designed for effortless elegance and comfort. Featuring a relaxed silhouette, wide sleeves, and signature geometric accent details.",
+        des1: "",
         category: "women",
 
         colour: [
-            { name: "Blue", hex: "" },
-            { name: "Black", hex: "" },
-            { name: "Red", hex: "" },
-            { name: "Burnt Orange", hex: "" },
+            { name: "White", hex: "#ffffff" },
         ],
 
         inStock: 10,
     },
+
+
 
     {
         id: 10,
@@ -248,16 +248,18 @@ const Products = [
     {
         id: 13,
         img: [
-            "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780486375/WhatsApp_Image_2026-05-31_at_00.10.26_j6chzu.jpg",
+            "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780257633/WhatsApp_Image_2026-05-31_at_00.14.15_ki2s3w.jpg",
+            "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780257633/WhatsApp_Image_2026-05-31_at_00.12.38_uaiwnf.jpg",
         ],
-        price: 40000.00,
+        price: 25000.00,
         name: "PG-0013",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: " ",
+        des1: "",
         category: "women",
 
         colour: [
-            { name: "", hex: "" },
+            { name: "Red", hex: "#FF0000" },
+            { name: "Black", hex: "#000000" },
         ],
 
         inStock: 10,

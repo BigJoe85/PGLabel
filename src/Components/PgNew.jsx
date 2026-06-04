@@ -8,7 +8,6 @@ const PgNew = () => {
 
     const newArrivals = products.slice(0, 4);
 
-
     return (
         <div>
             <div className=' py-10 w-[85%] max-md:w-[95%] mx-auto'>

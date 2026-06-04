@@ -9,7 +9,7 @@ import FootCollection from '../Components/FootCollection';
 const Home = () => {
   const homeDisplay = [
     {
-      img: "https://res.cloudinary.com/duoy2tsyc/image/upload/v1778857519/Ravaya_-1-3-scaled_dwqnfs.webp",
+      img: "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780540849/P3_mupa7g.jpg",
       txt1: "RAVAYA BY PG LABEL",
       txt2: "NEW IN",
       txt3: "SHOP COLLECTION",
@@ -17,7 +17,7 @@ const Home = () => {
     },
 
     {
-      img: "https://res.cloudinary.com/duoy2tsyc/image/upload/v1779214303/Ravaya_-7-2-scaled_u6v3uq.webp",
+      img: "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780540849/P2_tj3wnb.jpg",
       txt1: "PG LABEL S25 COLLECTIONS",
       txt2: "GET GRUNGE",
       txt3: "SHOP MEN",
@@ -26,7 +26,7 @@ const Home = () => {
 
 
     {
-      img: "https://res.cloudinary.com/duoy2tsyc/image/upload/v1778857519/Ravaya_-3-2-scaled_glz2wd.webp",
+      img: "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780540849/P4_ruzyjy.jpg",
       txt1: "THE PGL WOMEN COLLECTION",
       txt2: "SHOW UP",
       txt3: "SHOP WOMEN",
@@ -34,7 +34,7 @@ const Home = () => {
     },
 
     {
-      img: "https://res.cloudinary.com/duoy2tsyc/image/upload/v1778857520/Ravaya_-10-scaled_g4wxu0.webp",
+      img: "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780540849/P1_m2lwtf.jpg",
       txt1: "EXPLORE COLLECTION",
       txt2: "SHOP 2",
       txt3: "EXPLORE COLLECTION",
@@ -47,7 +47,7 @@ const Home = () => {
   useEffect(() => {
     let hommie = setInterval(() => {
       setHomeTimer(prev => prev === homeDisplay.length - 1 ? 0 : prev + 1)
-    }, 5000)
+    }, 10000)
 
     return () => clearInterval(hommie)
   }, [])
@@ -96,10 +96,12 @@ const Home = () => {
               />
             ))}
 
-            <div key={homeTimer} className='text-center z-30 w-screen h-screen relative left-1/2 -translate-x-1/2 flex flex-col justify-end'>
-              {animated >= 1 && <p className=' text-white slideUp absolute bottom-30 w-full text-center'>{homeDisplay[homeTimer].txt1}</p>}
-              {animated >= 2 && <h1 className='font-semibold text-white text-3xl slideUp absolute bottom-20 w-full text-center'>{homeDisplay[homeTimer].txt2}</h1>}
-              {animated >= 3 && <NavLink to={homeDisplay[homeTimer].path} className='bg-[#563624] hover:bg-black text-white slideUp absolute bottom-10 left-1/2 -translate-x-1/2  py-2 px-4 min-w-min text-center'>{homeDisplay[homeTimer].txt3}</NavLink>}
+            <div key={homeTimer} className='text-center z-30 w-screen h-screen relative flex flex-col justify-end'>
+              {animated >= 1 && <p style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
+                className='font-semibold drop-shadow-lg text-white slideUp absolute bottom-30 w-full text-center'>{homeDisplay[homeTimer].txt1}</p>}
+              {animated >= 2 && <h1 style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
+                className='font-semibold text-white text-3xl slideUp absolute bottom-20 w-full text-center'>{homeDisplay[homeTimer].txt2}</h1>}
+              {animated >= 3 && <NavLink to={homeDisplay[homeTimer].path} className=' bg-[#563624] hover:bg-black text-white slideUp absolute bottom-10 left-1/2 -translate-x-1/2  py-2 px-4 min-w-[15rem] text-center'>{homeDisplay[homeTimer].txt3}</NavLink>}
             </div>
           </div>
           <PgNew />
