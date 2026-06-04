@@ -5,6 +5,7 @@ import ShortLong from '../Components/ShortLong';
 import SplashScreen from '../Components/SplashScreen';
 import PgNew from '../Components/PgNew';
 import FootCollection from '../Components/FootCollection';
+import DripOnCollection from '../Components/DripOnCollection';
 
 const Home = () => {
   const homeDisplay = [
@@ -106,6 +107,7 @@ const Home = () => {
           </div>
           <PgNew />
           <ShortLong />
+          <DripOnCollection />
           <FootCollection />
         </>
       }
