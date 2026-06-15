@@ -32,11 +32,35 @@ const useUIStore = create((set) => ({
  filterOpen: false,
 
 
- toggleCart: ()=> set((state) => ({ cartOpen: !state.cartOpen })),
- toggleSearch: () => set((state) => ({ searchOpen: !state.searchOpen})),
- toggleLogin:() => set((state) => ({ loginOpen: !state.loginOpen})),
- toggleMenu:() =>set((state) => ({ menuOpen: !state.menuOpen})),
- toggleFilter:() =>set((state) => ({ filterOpen: !state.filterOpen}))
+ toggleCart: () => set((state) => {
+    const newCartOpen = !state.cartOpen
+    document.body.style.overflow = newCartOpen ? 'hidden' : 'unset'
+    return { cartOpen: newCartOpen }
+}),
+
+ toggleSearch: () => set((state) => {
+    const newSearchOpen = !state.searchOpen
+    document.body.style.overflow = newSearchOpen ? 'hidden' : 'unset'
+    return { searchOpen: newSearchOpen }
+ }),
+ 
+ toggleLogin:() => set((state) => {
+    const newLoginOpen = !state.loginOpen
+    document.body.style.overflow = newLoginOpen ? 'hidden' : 'unset'
+    return { loginOpen: newLoginOpen }
+ }),
+
+ toggleMenu:() =>set((state) => {
+    const newMenuOpen = !state.menuOpen
+    document.body.style.overflow = newMenuOpen ? 'hidden' : 'unset'
+    return { menuOpen: newMenuOpen }
+ }),
+
+ toggleFilter:() =>set((state) => {
+    const newFilterOpen = !state.filterOpen
+    document.body.style.overflow = newFilterOpen ? 'hidden' : 'unset'
+    return { filterOpen: newFilterOpen }
+ })
 
 
 }))

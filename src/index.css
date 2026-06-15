@@ -62,3 +62,23 @@ body {
     }
 }
 
+/* width of the scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* the track (background) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* the draggable part */
+::-webkit-scrollbar-thumb {
+    background: #563624;
+    border-radius: 10px;
+}
+
+/* on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #D0810B;
+}

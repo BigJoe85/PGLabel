@@ -1,30 +1,89 @@
+
 import React from 'react'
+import { ChevronRight, ChevronLeft } from "lucide-react"
+import { useState, useEffect } from 'react'
 import ProductCard from '../Components/ProductCard';
 import useProductStore from '../Stores/useProductStore'
 
 const FootCollection = () => {
-  const products = useProductStore((state) => state.products) // here im using selector to pick a state created in useProductStore and saving it in a variable to represent the sellected state, always best to use the same state selected  as the variable name.
+  const products = useProductStore((state) => state.products)
+  const productsFootwear = products.filter(product => product.category === "footwear")
 
-  //   const footCollection = products.slice(0, 4);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768)
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth > 768)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const itemsPerSlide = isDesktop ? 4 : 2
+  const extendedProducts = [...productsFootwear, ...productsFootwear.slice(0, itemsPerSlide)]
+
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(true)
+
+  const handleNext = () => {
+    setIsTransitioning(true)
+    setActiveIndex(prev => prev + 1)
+  }
+
+  const handlePrev = () => {
+    setIsTransitioning(true)
+    setActiveIndex(prev => prev - 1)
+  }
+
+  useEffect(() => {
+    activeIndex >= productsFootwear.length ? setTimeout(() => { setIsTransitioning(false); setActiveIndex(0) }, 500) : activeIndex < 0
+    ? setTimeout(() => { setIsTransitioning(false); setActiveIndex(productsFootwear.length - 1) }, 500) : null
+  }, [activeIndex])
+
+  const [paused, setPaused] = useState(false)
+
+  useEffect(() => {
+    const time = paused ? null : setInterval(() => {
+      setIsTransitioning(true)
+      setActiveIndex(prev => prev + 1)
+    }, 5000)
+    return () => clearInterval(time)
+  }, [activeIndex, paused])
+
+  const [hovered, setHovered] = useState(false)
 
   return (
+    <div className=''>
 
-    <div>
-      <div className=' py-10 w-[85%] max-md:w-[95%] mx-auto'>
+      <div className='py-10 w-[85%] max-md:w-[95%] mx-auto'>
+
         <div className='pb-5 text-center'>
           <h1 className='text-[#563624] font-medium'>THIS SEASON</h1>
-          <p className='text-[#563624] font-bold' >FOOTWEAR COLLECTION</p>
+          <p className='text-[#563624] font-bold'>FOOTWEAR COLLECTION</p>
         </div>
 
-        <div className='grid grid-cols-4 max-xl:grid-cols-3 max-md:grid-cols-2 '>
-          {products.filter(product => product.category === "footwear").slice(0, 4).map(el => (
-            < ProductCard el={el} key={el.id} /> // here i'm displaying a components and passing in my array method parameters as props so i can recieve and use in the component itself
-          ))}
+        <div onMouseEnter={() => { setHovered(true); setPaused(true) }} onMouseLeave={() => { setHovered(false); setPaused(false) }} className='relative overflow-hidden'>
+
+          <div className='flex' style={{ transform: `translateX(-${activeIndex * (100 / itemsPerSlide)}%)`, transition: isTransitioning ? 'transform 500ms ease' : 'none' }}>
+            {extendedProducts.map((el, index) => (
+              <div key={index} style={{ minWidth: `${100 / itemsPerSlide}%` }}>
+                <ProductCard el={el} />
+              </div>
+            ))}
+
+          </div>
+
+          <div className={`transition-all duration-300 w-12 h-12 bg-white rounded-full hover:bg-black hover:text-white absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer ${hovered ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'}`}>
+            <ChevronLeft size={24} strokeWidth={1} onClick={handlePrev} />
+          </div>
+
+          <div className={`transition-all duration-300 w-12 h-12 bg-white rounded-full hover:bg-black hover:text-white absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer ${hovered ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}>
+            <ChevronRight size={24} strokeWidth={1} onClick={handleNext} />
+          </div>
+
         </div>
+
       </div>
+
     </div>
-
-
   )
 }
 

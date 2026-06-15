@@ -72,7 +72,7 @@ const Cart = () => {
                 <p className='font-bold'>₦{total.toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
               </div>
               <div className='w-full flex gap-4'>
-                <div className='w-full border text-center py-2 hover:bg-black hover:text-white'>View Cart</div>
+                <div className='w-full border text-center py-2 hover:bg-black hover:text-white'><NavLink to="/view-cart">View Cart</NavLink> </div>
                 <div className='w-full border text-center py-2 bg-[#563624] text-white hover:bg-black hover:text-white'>Checkout</div>
               </div>
             </div>

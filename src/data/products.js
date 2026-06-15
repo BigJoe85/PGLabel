@@ -21,6 +21,9 @@ const Products = [
             { name: "Brown", hex: "#8B4513" },
         ],
 
+        rating: 2,
+
+
         inStock: 10,
     },
 
@@ -35,7 +38,7 @@ const Products = [
         price: 30000.00,
         name: "PG-002",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: "",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
@@ -43,6 +46,9 @@ const Products = [
             { name: "Brown", hex: "" },
             { name: "Black", hex: "" },
         ],
+
+        rating: 4,
+
 
         inStock: 10,
     },
@@ -61,6 +67,9 @@ const Products = [
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 4,
+
 
         inStock: 10,
     },
@@ -86,6 +95,9 @@ const Products = [
             { name: "Burnt Orange", hex: "" },
         ],
 
+        rating: 3,
+
+
         inStock: 10,
     },
 
@@ -98,12 +110,15 @@ const Products = [
         price: 30000.00,
         name: "PG-005",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: "fgfgg".repeat(150),
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
             { name: "Tropical Print", hex: "" },
         ],
+
+        rating: 3,
+
 
         inStock: 10,
     },
@@ -117,12 +132,15 @@ const Products = [
         price: 20000.00,
         name: "PG-006",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: "fgfgg".repeat(150),
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 2,
+
 
         inStock: 10,
     },
@@ -137,7 +155,7 @@ const Products = [
         price: 35000.00,
         name: "PG-007",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: "fgfgg".repeat(150),
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
@@ -145,6 +163,9 @@ const Products = [
             { name: "Brown", hex: "" },
             { name: "Burgundy", hex: "" },
         ],
+
+        rating: 5,
+
 
         inStock: 10,
     },
@@ -158,13 +179,16 @@ const Products = [
         price: 35000.00,
         name: "PG-008",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: "fgfgg".repeat(150),
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
             { name: "Blue", hex: "" },
             { name: "Red", hex: "" },
         ],
+
+        rating: 4,
+
 
         inStock: 10,
     },
@@ -178,12 +202,15 @@ const Products = [
         price: 28000.00,
         name: "PG-009",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: "",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
             { name: "White", hex: "#ffffff" },
         ],
+
+        rating: 4,
+
 
         inStock: 10,
     },
@@ -198,12 +225,15 @@ const Products = [
         price: 22000.00,
         name: "PG-0010",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: " ",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 2,
+
 
         inStock: 10,
     },
@@ -216,12 +246,15 @@ const Products = [
         price: 22000.00,
         name: "PG-0011",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: " ",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 4,
+
 
         inStock: 10,
     },
@@ -235,12 +268,15 @@ const Products = [
         price: 30000.00,
         name: "PG-0012",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: " ",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 4,
+
 
         inStock: 10,
     },
@@ -254,13 +290,16 @@ const Products = [
         price: 25000.00,
         name: "PG-0013",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: "",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
             { name: "Red", hex: "#FF0000" },
             { name: "Black", hex: "#000000" },
         ],
+
+        rating: 3,
+
 
         inStock: 10,
     },
@@ -273,12 +312,15 @@ const Products = [
         price: 40000.00,
         name: "PG-0014",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: " ",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 5,
+
 
         inStock: 10,
     },
@@ -291,12 +333,15 @@ const Products = [
         price: 28999.00,
         name: "PG-0015",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: " ",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 5,
+
 
         inStock: 10,
     },
@@ -309,12 +354,15 @@ const Products = [
         price: 22000.00,
         name: "PG-0016",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: " ",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 3,
+
 
         inStock: 10,
     },
@@ -327,12 +375,15 @@ const Products = [
         price: 22000.00,
         name: "PG-0017",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: " ",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 3,
+
 
         inStock: 10,
     },
@@ -345,12 +396,15 @@ const Products = [
         price: 30000.00,
         name: "PG-0018",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: " ",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 5,
+
 
         inStock: 10,
     },
@@ -363,12 +417,15 @@ const Products = [
         price: 22000.00,
         name: "PG-0019",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: " ",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 3,
+
 
         inStock: 10,
     },
@@ -381,12 +438,15 @@ const Products = [
         price: 30000.00,
         name: "PG-0020",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: " ",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "women",
 
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 5,
+
 
         inStock: 10,
     },
@@ -406,6 +466,9 @@ const Products = [
             { name: "", hex: "" },
         ],
 
+        rating: 4,
+
+
         inStock: 10,
     },
 
@@ -423,6 +486,9 @@ const Products = [
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 3,
+
 
         inStock: 10,
     },
@@ -442,6 +508,9 @@ const Products = [
             { name: "", hex: "" },
         ],
 
+        rating: 3,
+
+
         inStock: 10,
     },
 
@@ -459,6 +528,9 @@ const Products = [
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 2,
+
 
         inStock: 10,
     },
@@ -478,6 +550,9 @@ const Products = [
             { name: "", hex: "" },
         ],
 
+        rating: 5,
+
+
         inStock: 10,
     },
 
@@ -495,6 +570,9 @@ const Products = [
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 4,
+
 
         inStock: 10,
     },
@@ -514,6 +592,9 @@ const Products = [
             { name: "", hex: "" },
         ],
 
+        rating: 5,
+
+
         inStock: 10,
     },
 
@@ -532,6 +613,9 @@ const Products = [
             { name: "", hex: "" },
         ],
 
+        rating: 4,
+
+
         inStock: 10,
     },
 
@@ -540,15 +624,18 @@ const Products = [
         img: [
             "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780490741/WhatsApp_Image_2026-06-03_at_07.06.51_uxetyw.jpg",
         ],
-        price: 55000.00,
+        price: 51000.00,
         name: "PG-0029",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: "",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "men",
 
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 3,
+
 
         inStock: 10,
     },
@@ -558,15 +645,18 @@ const Products = [
         img: [
             "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780490740/WhatsApp_Image_2026-06-03_at_07.06.51_3_dnvtcr.jpg",
         ],
-        price: 55000.00,
+        price: 52000.00,
         name: "PG-0030",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: "",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "men",
 
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 2,
+
 
         inStock: 10,
     },
@@ -576,15 +666,18 @@ const Products = [
         img: [
             "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780490740/WhatsApp_Image_2026-06-03_at_07.06.51_2_xfmm40.jpg",
         ],
-        price: 55000.00,
+        price: 53000.00,
         name: "PG-0031",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: "",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "men",
 
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 2,
+
 
         inStock: 10,
     },
@@ -594,15 +687,18 @@ const Products = [
         img: [
             "https://res.cloudinary.com/duoy2tsyc/image/upload/v1780490740/WhatsApp_Image_2026-06-03_at_07.06.51_1_vk5n99.jpg",
         ],
-        price: 55000.00,
+        price: 54000.00,
         name: "PG-0032",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: "",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "men",
 
         colour: [
             { name: "", hex: "" },
         ],
+
+        rating: 5,
+
 
         inStock: 10,
     },
@@ -617,31 +713,18 @@ const Products = [
         price: 55000.00,
         name: "PG-0033",
         size: ["S", "M", "L", "XL", "XXL"],
-        des1: "",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "men",
 
         colour: [
             { name: "", hex: "" },
         ],
 
+        rating: 3,
+
+
         inStock: 10,
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     {
@@ -652,13 +735,16 @@ const Products = [
         price: 299000.00,
         name: "PG-0034",
         size: ["38", "39", "40", "41", "42", "44", "45"],
-        des1: "",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "footwear",
 
         colour: [
             { name: "Brown", hex: "#723509be" },
             { name: "Black", hex: "#000000" },
         ],
+
+        rating: 4,
+
 
         inStock: 10,
     },
@@ -671,13 +757,15 @@ const Products = [
         price: 299000.00,
         name: "PG-0035",
         size: ["38", "39", "40", "41", "42", "44", "45"],
-        des1: "",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "footwear",
 
         colour: [
-            { name: "Brown", hex: "#723509be" },
-            { name: "Black", hex: "#000000" },
+            { name: "", hex: "" },
         ],
+
+        rating: 4,
+
 
         inStock: 10,
     },
@@ -690,13 +778,15 @@ const Products = [
         price: 299000.00,
         name: "PG-0036",
         size: ["38", "39", "40", "41", "42", "44", "45"],
-        des1: "",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "footwear",
 
         colour: [
-            { name: "Brown", hex: "#723509be" },
-            { name: "Black", hex: "#000000" },
+            { name: "", hex: "" },
         ],
+
+        rating: 4,
+
 
         inStock: 10,
     },
@@ -709,13 +799,15 @@ const Products = [
         price: 299000.00,
         name: "PG-0037",
         size: ["38", "39", "40", "41", "42", "44", "45"],
-        des1: "",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "footwear",
 
         colour: [
-            { name: "Brown", hex: "#723509be" },
-            { name: "Black", hex: "#000000" },
+            { name: "", hex: "" },
         ],
+
+        rating: 4,
+
 
         inStock: 10,
     },
@@ -728,13 +820,15 @@ const Products = [
         price: 299000.00,
         name: "PG-0038",
         size: ["38", "39", "40", "41", "42", "44", "45"],
-        des1: "",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "footwear",
 
         colour: [
-            { name: "Brown", hex: "#723509be" },
-            { name: "Black", hex: "#000000" },
+            { name: "", hex: "" },
         ],
+
+        rating: 4,
+
 
         inStock: 10,
     },
@@ -747,13 +841,15 @@ const Products = [
         price: 299000.00,
         name: "PG-0039",
         size: ["38", "39", "40", "41", "42", "44", "45"],
-        des1: "",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "footwear",
 
         colour: [
-            { name: "Brown", hex: "#723509be" },
-            { name: "Black", hex: "#000000" },
+            { name: "", hex: "" },
         ],
+
+        rating: 5,
+
 
         inStock: 10,
     },
@@ -766,13 +862,15 @@ const Products = [
         price: 299000.00,
         name: "PG-0040",
         size: ["38", "39", "40", "41", "42", "44", "45"],
-        des1: "",
+        des1: "A timeless maxi gown featuring a flattering V-neckline, elegant puff sleeves, a fitted waist, and a flowing full-length skirt. Designed to make a statement at weddings, dinners, and special occasions. Effortlessly sophisticated and undeniably chic.",
         category: "footwear",
 
         colour: [
-            { name: "Brown", hex: "#723509be" },
-            { name: "Black", hex: "#000000" },
+            { name: "", hex: "" },
         ],
+
+        rating: 4,
+
 
         inStock: 10,
     },

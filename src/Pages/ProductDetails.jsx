@@ -1,10 +1,13 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import useProductStore from '../Stores/useProductStore'
-import { Minus, Plus, CircleQuestionMark, TruckElectric, Share2, ShieldHalf, Globe, StepForward, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Minus, Plus, CircleQuestionMark, TruckElectric, Share2, ShieldHalf, Globe, StepForward, ChevronLeft, ChevronRight, ShieldQuestion } from 'lucide-react'
 import useUIStore from '../Stores/useUIStore'
 import useCartStore from '../Stores/useCartStore'
+import Question from '../Components/Question'
+import Delivery from '../Components/Delivery'
+import Share from '../Components/Share'
 
 const ProductDetails = () => {
     const { id } = useParams()
@@ -80,6 +83,30 @@ const ProductDetails = () => {
         return (() => clearInterval(imgTimer))
     }, [activeIndex]);
 
+    // displaying question section
+    const [question, setQuestion] = React.useState(false)
+    const toggleQuestion = () => {
+        setQuestion(!question)
+        document.body.style.overflow = !question ? 'hidden' : 'unset'
+    }
+
+    // displaying Delivery section
+    const [delivery, setDelivery] = React.useState(false)
+    const toggleDelivery = () => {
+        setDelivery(!delivery)
+        document.body.style.overflow = !delivery ? 'hidden' : 'unset'
+    }
+
+    // displaying Share section
+    const [share, setShare] = React.useState(false)
+    const toggleShare = () => {
+        setShare(!share)
+        document.body.style.overflow = !share ? 'hidden' : 'unset'
+    }
+
+   //Storing and display the value of our url somewhere
+   let shareUrl =window.location.href
+
     return (
 
         <div className='relative w-full h-full'>
@@ -87,14 +114,16 @@ const ProductDetails = () => {
                 <div className='w-[90%] mx-auto h-full py-30 max-md:py-20'>
                     <div className='max-md:w-[95%] w-[90%] mx-auto grid grid-cols-[5fr_5fr] max-md:grid-cols-1 gap-20'>
 
-                        <div className='sticky top-0 max-md:static w-full grid grid-cols-[1fr_9fr] max-lg:flex max-lg:flex-col gap-4'>
-                            <div className='flex gap-2 flex-col max-lg:order-2 max-lg:flex-row'>
-                                {prod.img.map((imgVal, index) => (
-                                    <div key={index} onClick={() => setActiveIndex(index)} className={`${index === activeIndex ? 'border' : ''}`}>
-                                        <img src={imgVal} alt={prod.name} />
-                                    </div>
-                                ))}
-                            </div>
+                        <div className={`sticky top-0 max-md:static w-full ${prod.img.length > 1 ? 'grid grid-cols-[1fr_9fr]' : 'block'} max-lg:flex max-lg:flex-col gap-4`}>
+                            {prod.img.length > 1 && (
+                                <div className='flex gap-2 flex-col max-lg:order-2 max-lg:flex-row'>
+                                    {prod.img.map((imgVal, index) => (
+                                        <div key={index} onClick={() => setActiveIndex(index)} className={`${index === activeIndex ? 'border border-2' : ''}`}>
+                                            <img src={imgVal} alt={prod.name} />
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
 
                             <div className='overflow-hidden relative'>
 
@@ -114,8 +143,8 @@ const ProductDetails = () => {
 
                         <div className='text-[#563624]'>
                             <div className='mb-6'>
-                                <h1 className='font-medium text-xl pb-2'>{prod.name}</h1>
-                                <p className=' text-xl'>₦{(prod.price).toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                                <h1 className='transition-colors hover:text-[#D0810B] duration-[200ms] font-medium text-xl pb-2'>{prod.name}</h1>
+                                <p className='transition-colors hover:text-[#D0810B] duration-[200ms] text-xl'>₦{(prod.price).toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                             </div>
 
                             <div>
@@ -172,9 +201,11 @@ const ProductDetails = () => {
                             </div>
 
                             <div className='flex gap-4 py-8'>
-                                <p className='text-[clamp(0.2rem,1vw,1rem)] flex gap-2'> <CircleQuestionMark /> Ask a question</p>
-                                <p className='text-[clamp(0.2rem,1vw,1rem)] flex gap-2'><TruckElectric /> Delivery & Return</p>
-                                <p className='text-[clamp(0.2rem,1vw,1rem)] flex gap-2'><Share2 /> Share</p>
+                                <p onClick={toggleQuestion} className='text-[clamp(0.65rem,2vw,1rem)] transition-colors hover:text-[#D0810B] duration-[200ms] font-bold flex items-center gap-2'> <CircleQuestionMark /> Ask a question</p>
+
+                                <p onClick={toggleDelivery} className='text-[clamp(0.65rem,2vw,1rem)] transition-colors hover:text-[#D0810B] duration-[200ms] font-bold flex items-center gap-2'><TruckElectric /> Delivery & Return</p>
+
+                                <p onClick={toggleShare} className='text-[clamp(0.65rem,2vw,1rem)] transition-colors hover:text-[#D0810B] duration-[200ms] font-bold flex items-center gap-2'><Share2 /> Share</p>
                             </div>
 
                             <div className='grid grid-cols-2 max-lg:grid-cols-1 gap-4 w-full h-auto text-center pb-6'>
@@ -196,31 +227,31 @@ const ProductDetails = () => {
                         </div>
                     </div>
 
-                    <div className='flex flex-col gap-4 pt-20'>
+                    <div className='flex flex-col gap-4 pt-20 max-md:pt-5'>
                         <div onClick={toggleDescription} className='flex justify-between items-center rounded w-full h-[3rem] bg-gray-100 px-6'>
-                            <h1>Description</h1>
+                            <h1 className='font-bold text-[#563624] text-[clamp(1.25rem,2.5vw,1.5rem)]'>Description</h1>
                             {description ? <Minus size={20} strokeWidth={1} /> : <Plus size={20} strokeWidth={1} />}
                         </div>
 
                         <div className={`border border-gray-200 overflow-hidden transition-all duration-500 ${description ? 'translate-y-0 h-full opacity-100' : ' translate-y-full h-0 opacity-0'}`} >
-                            <ul className='text-sm px-10 py-6'>
+                            <ul className='text-sm px-10 max-md:px-5 py-6'>
                                 <li className='font-medium'>{prod.des1}</li>
                             </ul>
                         </div>
 
                         <div onClick={toggleAddInfo} className='flex justify-between items-center rounded w-full h-[3rem] bg-gray-100 px-6'>
-                            <h1>Additional information</h1>
+                            <h1 className='font-bold text-[#563624] text-[clamp(1.25rem,2.5vw,1.5rem)]'>Additional information</h1>
                             {addInfo ? <Minus size={20} strokeWidth={1} /> : <Plus size={20} strokeWidth={1} />}
                         </div>
 
                         <div className={`flex items-center border border-gray-200 overflow-hidden transition-all duration-500 ${addInfo ? 'translate-y-0 h-[5rem] opacity-100' : 'translate-y-full h-0 opacity-0'}`} >
-                            <div className='px-10 flex gap-4'>
+                            <div className='flex items-center px-10 max-md:px-5 flex gap-4'>
                                 <div>
-                                    <p>Select size:</p>
+                                    <p className='text-xs'>Size:</p>
                                 </div>
 
                                 {prod.size.map((sizeValue, index) => (
-                                    <div key={index} className={`min-w-[3rem] border border-gray-200 text-center`}>
+                                    <div key={index} className={`min-w-[3rem] max-lg:min-w-[2rem] border border-gray-200 text-center`}>
                                         {sizeValue}
                                     </div>
                                 ))}
@@ -228,23 +259,31 @@ const ProductDetails = () => {
                         </div>
                     </div>
 
+                </div>
+
+
+                : <p>Not Found</p>
+            }
+
+              <Question question={question} toggleQuestion={toggleQuestion} />
+              <Delivery delivery={delivery} toggleDelivery={toggleDelivery} />
+              <Share share={share} toggleShare={toggleShare} shareUrl={shareUrl} />
 
 
 
 
+            {/* bottom componenet that shows on scroll */}
+            {/* <div className={`w-full h-[6rem] transition-transform duration-900 bg-white flex items-center fixed bottom-0  w-full min-h-[5rem] z-[40] ${isScrolled ? ' translate-y-0' : ' translate-y-full'} `}>
 
-                    {/* bottom componenet that shows on scroll */}
-                    <div className={`transition-transform duration-900 bg-white fixed bottom-0 flex w-full min-h-[5rem] z-[40] items-center gap-2 ${isScrolled ? ' translate-y-0' : ' translate-y-full'} `}>
-                        <div><img src={prod.img[0]} alt={prod.name} className='rounded-full w-15 h-15' /></div>
-                        <p>{prod.name}</p>
-                        <div className='flex bg-gray-200'>
-                            <Minus onClick={decrement} />
-                            <p>{quantity}</p>
-                            <Plus onClick={increment} />
-                        </div>
+                <div className='w-[90%] mx-auto flex justify-between items-center gap-2'>
+                    <div className='flex items-center gap-4'>
+                        <div><img src={prod.img[0]} alt={prod.name} className='rounded-full w-20 h-20' /></div>
+                        <p className='font-medium'>{prod.name}</p>
+                    </div>
 
-                        <select defaultValue="" className='border rounded p-2'>
-                            <option value="" disabled>Select a size</option>
+                    <div className='flex items-center gap-4'>
+                        <select defaultValue="" className='text-gray-500 w-[15rem] border rounded p-2'>
+                            <option value="" disabled>Select an option</option>
                             {prod.size.map((sizeValue, index) => (
                                 <option key={index} value={sizeValue}>
                                     {sizeValue} - ₦{prod.price}
@@ -252,16 +291,19 @@ const ProductDetails = () => {
                             ))}
                         </select>
 
-                        <div>
-                            <h1 onClick={handleAddToCart} className='text-white bg-[#563624] hover:bg-black'>Add to cart</h1>
+                        <div className='flex items-center justify-between px-2 bg-gray-200 rounded w-[8rem] h-[2.5rem]'>
+                            <Minus onClick={decrement} />
+                            <p className='font-medium'>{quantity}</p>
+                            <Plus onClick={increment} />
+                        </div>
+
+                        <div className='w-[8rem] h-[2.5rem] flex items-center justify-center bg-[#563624]  hover:bg-black'>
+                            <h1 onClick={handleAddToCart} className='font-bold text-white'>Add to cart</h1>
                         </div>
                     </div>
+
                 </div>
-
-
-
-                : <p>Not Found</p>
-            }
+            </div> */}
         </div>
     )
 }
