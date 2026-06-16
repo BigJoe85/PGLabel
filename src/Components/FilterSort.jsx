@@ -46,7 +46,7 @@ const filtered = [
 
 
 
-          <select value={searchParams.get("sort") || "sort_by_latest" } onChange={ (e)=> setSearchParams({sort: e.target.value})} className='items-center p-2 border rounded border-gray-300 hover:border-[#563624]' name="" id="">
+          <select value={searchParams.get("sort") || "sort_by_latest" } onChange={ (e)=> setSearchParams({sort: e.target.value})} className='focus:outline-none items-center p-2 border rounded border-gray-300 hover:border-[#563624]' name="" id="" >
             <option value="" disabled>Sort by</option>
             {filtered.map(el => (
               <option key={el.id} value={el.value}>{el.label}</option>

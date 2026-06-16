@@ -33,7 +33,7 @@ const Cart = () => {
           <div className='flex flex-col items-center justify-center h-full bg-white gap-5'>
             <h3 className='text-2xl text-[#563624] font-medium'> YOUR CART IS EMPTY </h3>
             <p className='text-sm text-center text-[#563624]'>You may check out all the available products and <br /> buy some in the shop</p>
-            <NavLink to="./shop-men" className="bg-[#563624] hover:bg-black text-white px-4 py-2 min-w-min flex gap-3 items-center " >Return to shop <ArrowUpRight /> </NavLink>
+            <NavLink onClick={toggleCart} to="./new-arrivals" className="bg-[#563624] hover:bg-black text-white px-4 py-2 min-w-min flex gap-3 items-center" >Return to shop <ArrowUpRight /> </NavLink>
           </div>
         ) : (
           <>

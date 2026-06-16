@@ -22,7 +22,7 @@ const Footer = () => {
     return (
         <div className='w-full'>
 
-            <div className='max-md:w-[95%] w-[90%] mx-auto'>
+            <div className=' w-[90%] mx-auto'>
 
                 <hr className='border-gray-200 py-4' />
 

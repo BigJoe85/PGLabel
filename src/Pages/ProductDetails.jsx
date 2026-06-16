@@ -149,7 +149,7 @@ const ProductDetails = () => {
 
                             <div>
                                 <p className='text-sm'>Size</p>
-                                <div className="flex w-60 gap-4 pt-3 pb-4">
+                                <div className="grid grid grid-cols-[repeat(auto-fill,minmax(20px,30px))] w-full gap-5 pt-3 pb-4">
                                     {prod.size.map((sizeValue, index) => (
                                         <div
                                             onClick={() => handleActive(sizeActive === sizeValue ? null : sizeValue)}

@@ -8,7 +8,10 @@ const NavSearch = () => {
   const toggleSearch = useUIStore((state)=>state.toggleSearch)
 
   return (
-    <div className={`px-6 py-8 w-full bg-white h-screen z-40 fixed top-0 transition-transform duration-600 max-xl:right-0  max-xl:w-96  ${searchOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+    <>
+     <div onClick={toggleSearch} className={`w-full h-screen bg-black/50 fixed z-[45] top-0 p-5 cursor-pointer ${searchOpen ? 'block' : 'hidden'}`}></div>
+   
+    <div className={`px-6 py-8 w-full bg-white h-screen z-50 fixed top-0 transition-transform duration-600 max-xl:right-0  max-xl:w-96 max-md:w-[90%]  ${searchOpen ? 'translate-x-0' : 'translate-x-full'}`}>
       <div className='flex justify-end'> <X className='hover:text-red-500' onClick={toggleSearch} /> </div>
       <div className='text-center'>
         <h1 className='pb-5'>SEARCH PG-LABEL</h1>
@@ -17,6 +20,7 @@ const NavSearch = () => {
         
       </div>
     </div>
+     </>
   )
 }
 
